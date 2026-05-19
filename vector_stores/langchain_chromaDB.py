@@ -112,7 +112,7 @@ def main():
     # -----------------------------
     vector_store = Chroma(
         collection_name=COLLECTION_NAME, 
-            # Name of the Chroma collection.
+        # Name of the Chroma collection.
         # A collection is like a table/folder inside ChromaDB where your documents,
         # embeddings, metadata, and IDs are stored together.
         # Example: COLLECTION_NAME = "sample"
