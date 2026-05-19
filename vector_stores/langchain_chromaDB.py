@@ -111,9 +111,22 @@ def main():
     # Create Chroma vector store
     # -----------------------------
     vector_store = Chroma(
-        collection_name=COLLECTION_NAME,
-        embedding_function=embeddings,
-        persist_directory=PERSIST_DIR,
+        collection_name=COLLECTION_NAME, 
+            # Name of the Chroma collection.
+        # A collection is like a table/folder inside ChromaDB where your documents,
+        # embeddings, metadata, and IDs are stored together.
+        # Example: COLLECTION_NAME = "sample"
+        embedding_function=embeddings,  
+        # which embedding model we use
+        # The embedding model used to convert text into vectors.
+        # Whenever you add documents, Chroma uses this model to create embeddings.
+        # Whenever you search with a query, the same model converts the query into a vector.
+        # Example: embeddings = OllamaEmbeddings(model="nomic-embed-text")
+        persist_directory=PERSIST_DIR,   
+        # where data is stored
+        # Local folder where Chroma stores the vector database files.
+        # This allows your data to stay saved even after the Python script stops.
+        # Example: PERSIST_DIR = "my_chroma_db"
     )
 
     # -----------------------------
@@ -134,7 +147,7 @@ def main():
     # -----------------------------
     search_results = vector_store.similarity_search(
         query="Who among these are a bowler?",
-        k=2,
+        k=2,   # How many similar vector need to display in result
     )
 
     print_results("Similarity Search Results", search_results)
