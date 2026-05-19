@@ -24,3 +24,11 @@ python-dotenv
 # Machine Learning Utilities
 numpy
 scikit-learn
+
+# Chroma Vector DB
+langchain-chroma
+chromadb
+
+# Ollama Local Embeddings / LLM
+langchain-ollama
+ollama
